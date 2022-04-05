@@ -10,23 +10,26 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './loader/interceptor.service';
+import { SuperHeroDetailsComponent } from './components/super-hero-details/super-hero-details.component';
+import { EditSuperHeroComponent } from './components/edit-super-hero/edit-super-hero.component';
+import { ComponentsModule } from './components/components.module';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SuperHeroesComponent
+    AppComponent    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     RouterModule,
-    NgxPaginationModule,
-    MatProgressSpinnerModule,
+    ComponentsModule,
+    SharedModule,
     HttpClientModule 
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]
 })

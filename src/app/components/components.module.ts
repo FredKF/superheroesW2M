@@ -1,0 +1,29 @@
+import { CommonModule } from "@angular/common";
+import { NgModule } from "@angular/core";
+import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
+import { NgxPaginationModule } from "ngx-pagination";
+import { ComponentsRoutingModule } from "./components-routing.module";
+import { EditSuperHeroComponent } from "./edit-super-hero/edit-super-hero.component";
+import { SuperHeroDetailsComponent } from "./super-hero-details/super-hero-details.component";
+import { SuperHeroesComponent } from "./super-heroes/super-heroes.component";
+
+@NgModule({
+  declarations: [
+    SuperHeroesComponent,
+    SuperHeroDetailsComponent,
+    EditSuperHeroComponent
+  ],
+  imports: [
+    MatProgressSpinnerModule,
+    NgxPaginationModule,
+    CommonModule,
+    ComponentsRoutingModule
+  ],
+  exports:[
+    SuperHeroesComponent,
+    SuperHeroDetailsComponent,
+    EditSuperHeroComponent
+  ]
+  
+})
+export class ComponentsModule { }

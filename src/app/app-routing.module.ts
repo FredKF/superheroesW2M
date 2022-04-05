@@ -2,9 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { SuperHeroesComponent } from './components/super-heroes/super-heroes.component';
+import { NotFoundComponent } from './shared/not-found/not-found.component';
 
-const routes: Routes = [
-  {path: '', component: SuperHeroesComponent }
+const routes: Routes = [  
+  {path: 'super-heroes', loadChildren:()=>import('./components/components.module' ).then(m => m.ComponentsModule)},
+  {path: '', redirectTo:'/super-heroes', pathMatch: 'full'},
+  {path: '**', component: NotFoundComponent }
 ]
 
 @NgModule({
