@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { SuperHeroesComponent } from './components/super-heroes/super-heroes.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [  

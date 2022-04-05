@@ -1,11 +1,12 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { SuperHeroDetailsComponent } from "./super-hero-details/super-hero-details.component";
+import { EditSuperHeroComponent } from "./edit-super-hero/edit-super-hero.component";
 import { SuperHeroesComponent } from "./super-heroes/super-heroes.component";
 
 const routes: Routes = [
    {path: '', component: SuperHeroesComponent },
-   {path: ':id', component: SuperHeroDetailsComponent }
+   {path: 'edit', component: EditSuperHeroComponent},
+   {path: 'edit/:id', component: EditSuperHeroComponent}
 ]
 
 @NgModule({

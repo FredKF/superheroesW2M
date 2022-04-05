@@ -26,7 +26,7 @@ import { SharedModule } from './shared/shared.module';
     RouterModule,
     ComponentsModule,
     SharedModule,
-    HttpClientModule 
+    HttpClientModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
