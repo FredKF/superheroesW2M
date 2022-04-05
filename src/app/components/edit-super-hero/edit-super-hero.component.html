@@ -1,1 +1,19 @@
-<p>edit-super-hero works!</p>
+<form [formGroup]="heroForm">
+    <label for="heroId">Id</label>
+    <input type="text" id="heroId" formControlName="id">
+    <div *ngIf="this.slug.invalid && (this.slug.dirty || this.slug.touched)"
+      class="alert alert-danger">*****required******
+    </div>
+    <label for="name">Name</label>
+    <input type="text" id="name" formControlName="name" >
+    <div *ngIf="this.name.invalid && (this.name.dirty || this.name.touched)"
+      class="alert alert-danger">*****required******
+    </div>
+    <label for="slug">Slug</label>
+    <input type="text" id="slug" formControlName="slug">
+    <div *ngIf="this.slug.invalid && (this.slug.dirty || this.slug.touched)"
+      class="alert alert-danger">*****required******
+    </div>  
+  </form>
+  <button (click)="addNewHero()">ADD</button>
+  <button (click)="confirmEdit()">Confirm</button>

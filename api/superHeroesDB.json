@@ -1721,58 +1721,6 @@
       }
     },
     {
-      "id": 41,
-      "name": "Arclight",
-      "slug": "41-arclight",
-      "powerstats": {
-        "intelligence": 38,
-        "strength": 63,
-        "speed": 23,
-        "durability": 42,
-        "power": 52,
-        "combat": 70
-      },
-      "appearance": {
-        "gender": "Female",
-        "race": null,
-        "height": [
-          "5'8",
-          "173 cm"
-        ],
-        "weight": [
-          "126 lb",
-          "57 kg"
-        ],
-        "eyeColor": "Violet",
-        "hairColor": "Purple"
-      },
-      "biography": {
-        "fullName": "Philippa Sontag",
-        "alterEgos": "No alter egos found.",
-        "aliases": [
-          "-"
-        ],
-        "placeOfBirth": "Vietnam",
-        "firstAppearance": "(In shadow) Uncanny X-Men #210 (1986), (fully) X-Factor #10 (1986)",
-        "publisher": "Marvel Comics",
-        "alignment": "bad"
-      },
-      "work": {
-        "occupation": "Terrorist",
-        "base": "-"
-      },
-      "connections": {
-        "groupAffiliation": "Marauders formerly, 198, Femizons",
-        "relatives": "-"
-      },
-      "images": {
-        "xs": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/41-arclight.jpg",
-        "sm": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/41-arclight.jpg",
-        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/41-arclight.jpg",
-        "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/41-arclight.jpg"
-      }
-    },
-    {
       "id": 42,
       "name": "Ardina",
       "slug": "42-ardina",
@@ -30175,58 +30123,6 @@
         "sm": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/730-zatanna.jpg",
         "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/730-zatanna.jpg",
         "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/730-zatanna.jpg"
-      }
-    },
-    {
-      "id": 731,
-      "name": "Zoom",
-      "slug": "731-zoom",
-      "powerstats": {
-        "intelligence": 50,
-        "strength": 10,
-        "speed": 100,
-        "durability": 28,
-        "power": 100,
-        "combat": 28
-      },
-      "appearance": {
-        "gender": "Male",
-        "race": null,
-        "height": [
-          "6'1",
-          "185 cm"
-        ],
-        "weight": [
-          "181 lb",
-          "81 kg"
-        ],
-        "eyeColor": "Red",
-        "hairColor": "Brown"
-      },
-      "biography": {
-        "fullName": "Hunter Zolomon",
-        "alterEgos": "No alter egos found.",
-        "aliases": [
-          "-"
-        ],
-        "placeOfBirth": "-",
-        "firstAppearance": "Flash Secret Files #3",
-        "publisher": "DC Comics",
-        "alignment": "bad"
-      },
-      "work": {
-        "occupation": "-",
-        "base": "Keystone City, Kansas"
-      },
-      "connections": {
-        "groupAffiliation": "Secret Society of Super Villains, formerly Keystone Police Department, F.B.I.",
-        "relatives": "Ashley Zolomon (ex-wife)"
-      },
-      "images": {
-        "xs": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/731-zoom.jpg",
-        "sm": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/731-zoom.jpg",
-        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/731-zoom.jpg",
-        "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/731-zoom.jpg"
       }
     }
   ]

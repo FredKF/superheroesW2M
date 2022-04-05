@@ -37,7 +37,6 @@ export class SuperHeroDetailsComponent implements OnInit {
 
   deleteSuperHero(heroId: number){
     this.superHeoresService.deleteSuperHero(heroId).subscribe(res => {
-      console.log(res);
       this.superHeoresService.heroSelectedSubject.next(0);
     });
   }
@@ -45,10 +44,10 @@ export class SuperHeroDetailsComponent implements OnInit {
   constructor(private superHeoresService: SuperHeroesService,
               private router: Router) {
   }
+
   ngOnInit(): void {
     this.superHeoresService.heroSelectedSubject.subscribe(id => {
       this.showId = id;
-      console.log(this.showId);
     });
   }
 }

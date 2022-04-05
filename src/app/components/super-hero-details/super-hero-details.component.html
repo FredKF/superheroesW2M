@@ -1,5 +1,6 @@
 <div class="hero-details" *ngIf="superHeroDetail$ | async as heroSelected" >
     HERO DETAIL HERE: 
+    <img [src]="heroSelected.images.sm" alt="">
     <p>{{heroSelected.name}}</p>
     <button (click)="editHero(heroSelected.id)" >EDIT</button>
     <button (click)="deleteSuperHero(heroSelected.id)">DELETE</button>   

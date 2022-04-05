@@ -7,6 +7,7 @@ import { ComponentsRoutingModule } from "./components-routing.module";
 import { EditSuperHeroComponent } from "./edit-super-hero/edit-super-hero.component";
 import { SuperHeroDetailsComponent } from "./super-hero-details/super-hero-details.component";
 import { SuperHeroesComponent } from "./super-heroes/super-heroes.component";
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { SuperHeroesComponent } from "./super-heroes/super-heroes.component";
     NgxPaginationModule,
     CommonModule,
     ComponentsRoutingModule,
-    SharedModule
+    SharedModule,
+    ReactiveFormsModule
+    
   ],
   exports:[
     SuperHeroesComponent,
