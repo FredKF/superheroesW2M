@@ -8,11 +8,6 @@
     opacity: 0.5;
 }
 
-.container{
-    display: flex;
-    justify-content: space-around; 
-}
-
 .heroes{
     width: 40vw;
 }
