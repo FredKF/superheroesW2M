@@ -5,6 +5,8 @@ import { MatProgressSpinnerModule } from "@angular/material/progress-spinner";
 import { NgxPaginationModule } from "ngx-pagination";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { SearchComponent } from "./search/search.component";
+import { MatToolbarModule } from '@angular/material/toolbar';
+
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import { SearchComponent } from "./search/search.component";
     MatProgressSpinnerModule,
     NgxPaginationModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    MatToolbarModule
   ],
   exports:[
     NotFoundComponent,

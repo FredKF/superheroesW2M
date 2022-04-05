@@ -1,13 +1,17 @@
+<div class="container">
+
 <mat-spinner class="loading" *ngIf="this.loader.isloading | async" mode="indeterminate"></mat-spinner>
 
 <div class="container">
+    <app-search (changed)="filter($event)"></app-search>
     <div class="heroes" *ngIf="superHeroes$ | async as superHeroes">
         <div class="hero" *ngFor="let superHero of superHeroes | paginate:{itemsPerPage: 10, currentPage: page} ">
-            {{superHero.name}}
-        </div>    
+            <p (click)="heroDetails(superHero.id)">{{superHero.name}}</p> 
+        </div>  
+        <app-super-hero-details class="hero-details"> HERE</app-super-hero-details>
         <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
     
 </div>
-
-
+    <button type="button" class="btn btn-secondary" (click)="newHero()">EDIT</button>
+</div>

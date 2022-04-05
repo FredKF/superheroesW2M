@@ -1,1 +1,6 @@
-<p>super-hero-details works!</p>
+<div class="hero-details" *ngIf="superHeroDetail$ | async as heroSelected" >
+    HERO DETAIL HERE: 
+    <p>{{heroSelected.name}}</p>
+    <button (click)="editHero(heroSelected.id)" >EDIT</button>
+    <button (click)="deleteSuperHero(heroSelected.id)">DELETE</button>   
+</div>
