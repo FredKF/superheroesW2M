@@ -1,0 +1,34 @@
+.hero{
+    color: aquamarine;
+    background-color: salmon;
+}
+
+.hero:hover{
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+.container{
+    display: flex;
+    justify-content: space-around; 
+}
+
+.heroes{
+    width: 40vw;
+}
+
+.hero-details{
+    width: 40vw;
+    background-color: aquamarine;
+}
+
+.loading{
+    position: fixed;
+    z-index: 99;
+    left: 50%;
+    top: 35%;
+    height: 31px;
+    width: 31px;
+}
+
+
