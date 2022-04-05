@@ -8,7 +8,5 @@ import { environment } from './../environments/environment';
 })
 export class AppComponent {
   title = 'superheroesW2M';
-  baseUrl = environment.apiUrl;
-
-  
+  baseUrl = environment.apiUrl;  
 }
