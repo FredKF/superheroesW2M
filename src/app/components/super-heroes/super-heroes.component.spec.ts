@@ -1,11 +1,8 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TemplateDefinitionBuilder } from '@angular/compiler/src/render3/view/template';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { MAT_PROGRESS_SPINNER_DEFAULT_OPTIONS_FACTORY } from '@angular/material/progress-spinner';
 import { Router } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Observable, throwError } from 'rxjs';
+import { Observable } from 'rxjs';
 import { LoaderService } from 'src/app/loader/loader.service';
 import { SuperHero } from 'src/app/models/super-hero/super-heroes.model';
 import { SuperHeroesService } from 'src/app/services/super-heroes.service';
@@ -55,18 +52,11 @@ describe('SuperHeroesComponent', () => {
     expect(component.superHeroes$).toBeInstanceOf(Observable);
   });
 
+   
+
   it('should return superheroes data collection', () =>{
-
-    spyOn(superHeroesService, 'searchSuperHero')
-    .and
-    .callThrough()
-
-    component.ngOnInit();
-    fixture.detectChanges();
-
-    expect(superHeroesService.searchSuperHero).toHaveBeenCalledWith('banana');
-    expect(component.superHeroes$.subscribe())
-    
-
+    (<HTMLInputElement>document.getElementById('num1')).value = '2';
+    document.getElementById('boton').click();
+    expect((<HTMLInputElement>document.getElementById('result')).value ).toBe('4');
   });
 });

@@ -122,7 +122,8 @@ export class EditSuperHeroComponent implements OnInit {
     });    
   }
 
-  onFileSelected(event: any){
-    console.log(event.target.files);
+  cancelAction(){
+    this.heroForm.reset();
+    this.router.navigate(['/']);
   }
 }
