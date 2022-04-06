@@ -13,7 +13,8 @@ export class EditSuperHeroComponent implements OnInit {
   heroForm: FormGroup;
   newHero: SuperHero;
   heroUpdate: SuperHero;
-  isAdd = false;  
+  isAdd = false;
+  image = "";
   
   get name(){return this.heroForm.get('name');}
   get slug(){return this.heroForm.get('slug');}
@@ -41,6 +42,7 @@ export class EditSuperHeroComponent implements OnInit {
     if(!this.isAdd) {
     this.superHeroService.getSuperHeroById(id).subscribe( res => {
       this.heroUpdate = res;
+      this.image = res.images.lg;
       this.heroForm = this.formBuilder.group({
         id:[this.heroUpdate.id],
         name:[this.heroUpdate.name,[Validators.required, Validators.minLength(2)]],
@@ -118,5 +120,9 @@ export class EditSuperHeroComponent implements OnInit {
     this.superHeroService.getSuperHeroById(id).subscribe(res =>{
       this.heroUpdate = res;      
     });    
+  }
+
+  onFileSelected(event: any){
+    console.log(event.target.files);
   }
 }

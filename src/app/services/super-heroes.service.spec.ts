@@ -2,6 +2,8 @@ import { TestBed } from '@angular/core/testing';
 import { SuperHeroesService } from './super-heroes.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { MOCK_SUPER_HEROES } from '../models/mock/mock-super-heroes';
+import { HttpClientModule } from '@angular/common/http';
+import { FormBuilder } from '@angular/forms';
 
 describe('SuperHeroesService', () => {
   let service: SuperHeroesService;
@@ -24,7 +26,7 @@ describe('SuperHeroesService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('getAll should make a GET HTTP request and return all data items', () => {
+  it('get all SuperHeroes should make a GET HTTP request and return all data items', () => {
   service.superHeroes$.subscribe( async res => {
     expect(res[0]).toEqual(MOCK_SUPER_HEROES[0]);    
     }); 
@@ -35,6 +37,5 @@ describe('SuperHeroesService', () => {
     req.flush(MOCK_SUPER_HEROES);
     httpTestingController.verify();
   });
-
 
 });

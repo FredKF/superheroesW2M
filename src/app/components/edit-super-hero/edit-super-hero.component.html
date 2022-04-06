@@ -1,4 +1,15 @@
 <div class="container">
+
+  <div class="d-flex align-items-center">
+    <div class="img">
+      <img [src]="image" alt="no image">
+    </div>
+    <div>
+      <input type="file" class="file-upload" requiredFileType="image/png" (change)="onFileSelected($event)">
+    </div>
+  </div>
+
+
   <form [formGroup]="heroForm">
 
     <div class="form-group">

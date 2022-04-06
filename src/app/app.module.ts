@@ -23,7 +23,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     HttpClientModule
   ],
-  providers: [
+  providers: [    
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
   ],
   bootstrap: [AppComponent]
