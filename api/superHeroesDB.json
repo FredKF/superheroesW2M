@@ -323,55 +323,7 @@
     {
       "id": 7,
       "name": "Adam Monroe",
-      "slug": "7-adam-monroe",
-      "powerstats": {
-        "intelligence": 63,
-        "strength": 10,
-        "speed": 12,
-        "durability": 100,
-        "power": 100,
-        "combat": 64
-      },
-      "appearance": {
-        "gender": "Male",
-        "race": null,
-        "height": [
-          "-",
-          "0 cm"
-        ],
-        "weight": [
-          "- lb",
-          "0 kg"
-        ],
-        "eyeColor": "Blue",
-        "hairColor": "Blond"
-      },
-      "biography": {
-        "fullName": "",
-        "alterEgos": "No alter egos found.",
-        "aliases": [
-          "Takezo Kensei",
-          "Richard Sanders"
-        ],
-        "placeOfBirth": "-",
-        "firstAppearance": "Heroes S02E01 - Four Months Later...",
-        "publisher": "NBC - Heroes",
-        "alignment": "good"
-      },
-      "work": {
-        "occupation": "former samurai swordsman, former British mercenary commander, former soldier in the Confederate Army",
-        "base": "U.S.; formerly Diedenshausen, Germany; Milan, Italy; Paris, France; Japan; England; Atlanta, GA; Montreal, Canada"
-      },
-      "connections": {
-        "groupAffiliation": "-",
-        "relatives": "-"
-      },
-      "images": {
-        "xs": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/7-adam-monroe.jpg",
-        "sm": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/7-adam-monroe.jpg",
-        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/7-adam-monroe.jpg",
-        "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/7-adam-monroe.jpg"
-      }
+      "slug": "7-adam-monroe"
     },
     {
       "id": 8,
@@ -428,58 +380,8 @@
     },
     {
       "id": 10,
-      "name": "Agent Bob",
-      "slug": "10-agent-bob",
-      "powerstats": {
-        "intelligence": 10,
-        "strength": 8,
-        "speed": 13,
-        "durability": 5,
-        "power": 5,
-        "combat": 20
-      },
-      "appearance": {
-        "gender": "Male",
-        "race": "Human",
-        "height": [
-          "5'10",
-          "178 cm"
-        ],
-        "weight": [
-          "181 lb",
-          "81 kg"
-        ],
-        "eyeColor": "Brown",
-        "hairColor": "Brown"
-      },
-      "biography": {
-        "fullName": "Bob",
-        "alterEgos": "No alter egos found.",
-        "aliases": [
-          "Bob",
-          "agent of Hydra",
-          "Bob",
-          "agent of A.I.M"
-        ],
-        "placeOfBirth": "-",
-        "firstAppearance": "Cable & Deadpool #38 (May, 2007)",
-        "publisher": "Marvel Comics",
-        "alignment": "good"
-      },
-      "work": {
-        "occupation": "Mercenary, janitor; former pirate, terrorist",
-        "base": "Mobile; formerly Manhattan, Hellcarrier"
-      },
-      "connections": {
-        "groupAffiliation": "A.I.M., Deadpool; formerly Agency X, Hydra",
-        "relatives": "Allison (ex-wife); Terry and Howie (sons)"
-      },
-      "images": {
-        "xs": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/10-agent-bob.jpg",
-        "sm": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/10-agent-bob.jpg",
-        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/10-agent-bob.jpg",
-        "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/10-agent-bob.jpg"
-      }
+      "name": "Agent Bobo",
+      "slug": "10-agent-bob"
     },
     {
       "id": 12,
@@ -797,61 +699,6 @@
         "sm": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/18-alien.jpg",
         "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/18-alien.jpg",
         "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/18-alien.jpg"
-      }
-    },
-    {
-      "id": 20,
-      "name": "Amazo",
-      "slug": "20-amazo",
-      "powerstats": {
-        "intelligence": 63,
-        "strength": 100,
-        "speed": 83,
-        "durability": 100,
-        "power": 100,
-        "combat": 100
-      },
-      "appearance": {
-        "gender": "Male",
-        "race": "Android",
-        "height": [
-          "8'5",
-          "257 cm"
-        ],
-        "weight": [
-          "385 lb",
-          "173 kg"
-        ],
-        "eyeColor": "Red",
-        "hairColor": "-"
-      },
-      "biography": {
-        "fullName": "",
-        "alterEgos": "No alter egos found.",
-        "aliases": [
-          "Professor Ivos Amazing Android",
-          "Timazo",
-          "Humazo",
-          "Hourmazo"
-        ],
-        "placeOfBirth": "-",
-        "firstAppearance": "Brave and the Bold #30 (July, 1960)",
-        "publisher": "DC Comics",
-        "alignment": "bad"
-      },
-      "work": {
-        "occupation": "-",
-        "base": "-"
-      },
-      "connections": {
-        "groupAffiliation": "Formerly the Secret Society of Super Villains",
-        "relatives": "Professor Ivo (creator), Kid Amazo (cyborg offspring)"
-      },
-      "images": {
-        "xs": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/xs/20-amazo.jpg",
-        "sm": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/sm/20-amazo.jpg",
-        "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/20-amazo.jpg",
-        "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/20-amazo.jpg"
       }
     },
     {
@@ -30124,6 +29971,11 @@
         "md": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/730-zatanna.jpg",
         "lg": "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/lg/730-zatanna.jpg"
       }
+    },
+    {
+      "id": "732",
+      "name": "COPPERI",
+      "slug": "asdasdasdasd"
     }
   ]
 }

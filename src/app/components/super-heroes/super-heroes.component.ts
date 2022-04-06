@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, EMPTY, map } from 'rxjs';
+import { BehaviorSubject, catchError, combineLatest, EMPTY, map } from 'rxjs';
 import { SuperHeroesService } from 'src/app/services/super-heroes.service';
 import { LoaderService } from '../../loader/loader.service'
 
@@ -15,6 +15,9 @@ export class SuperHeroesComponent implements OnInit {
   page: any;
   errorMessage = "";
   showError: boolean;
+  
+  private heroIdSelectedSubject = new BehaviorSubject<number>(0);
+  heroSelectedAction$ = this.heroIdSelectedSubject.asObservable();
 
   superHeroes$ = this.superHeroesService.superHeroes$
   .pipe(
@@ -25,11 +28,31 @@ export class SuperHeroesComponent implements OnInit {
     })
   );
 
+  superHeroesId$ = combineLatest([
+    this.superHeroesService.superHeroes$,
+    this.heroSelectedAction$
+  ])
+  .pipe(
+    map( ([superHeroes, selectedHeroId ])=>
+      superHeroes.filter(superHero =>
+       
+        selectedHeroId ? superHero.id  === selectedHeroId : true)
+      ),
+      catchError(err => {
+        this.errorMessage = err;
+        return EMPTY;
+      })
+  )
+
   constructor(public loader: LoaderService,
               private superHeroesService: SuperHeroesService,
               private router: Router) { }
 
   ngOnInit(): void {
+    this.superHeroesService.heroSelectedSubject.subscribe(id => {
+      console.log(id);
+      
+    });
   }
 
   filter(keyWord: string){
@@ -47,7 +70,10 @@ export class SuperHeroesComponent implements OnInit {
   } 
 
   heroDetails(heroId: number): void{
+    
+    this.heroIdSelectedSubject.next(heroId);
     this.superHeroesService.heroSelectedSubject.next(heroId);
+    
   }
 
 }

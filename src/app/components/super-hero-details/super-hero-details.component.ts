@@ -37,7 +37,7 @@ export class SuperHeroDetailsComponent implements OnInit {
 
   deleteSuperHero(heroId: number){
     this.superHeoresService.deleteSuperHero(heroId).subscribe(res => {
-      this.superHeoresService.heroSelectedSubject.next(0);
+      this.superHeoresService.heroSelectedSubject.next(heroId);
     });
   }
   
