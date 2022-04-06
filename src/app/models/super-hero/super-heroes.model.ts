@@ -6,7 +6,7 @@ import { Work } from "./work";
 import { Images } from "./images";
 
 export interface SuperHero {
-  id: number;
+  id?: number;
   name: string;
   slug: string;
   powerstats?: Powerstats;
