@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, combineLatest, EMPTY, map } from 'rxjs';
+import { LoaderService } from 'src/app/loader/loader.service';
 import { SuperHeroesService } from 'src/app/services/super-heroes.service';
 
 @Component({
@@ -42,7 +43,8 @@ export class SuperHeroDetailsComponent implements OnInit {
   }
   
   constructor(private superHeoresService: SuperHeroesService,
-              private router: Router) {
+              private router: Router,
+              public loader: LoaderService) {
   }
 
   ngOnInit(): void {

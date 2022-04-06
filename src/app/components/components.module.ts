@@ -8,6 +8,8 @@ import { EditSuperHeroComponent } from "./edit-super-hero/edit-super-hero.compon
 import { SuperHeroDetailsComponent } from "./super-hero-details/super-hero-details.component";
 import { SuperHeroesComponent } from "./super-heroes/super-heroes.component";
 import { ReactiveFormsModule } from '@angular/forms';
+import { MatCardModule } from '@angular/material/card';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
@@ -21,8 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     CommonModule,
     ComponentsRoutingModule,
     SharedModule,
-    ReactiveFormsModule
-    
+    ReactiveFormsModule,
+    MatCardModule,
+    MatListModule       
   ],
   exports:[
     SuperHeroesComponent,

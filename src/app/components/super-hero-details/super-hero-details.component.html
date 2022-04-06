@@ -1,7 +1,29 @@
-<div class="hero-details" *ngIf="superHeroDetail$ | async as heroSelected" >
-    HERO DETAIL HERE: 
-    <img [src]="heroSelected.images.sm" alt="">
-    <p>{{heroSelected.name}}</p>
-    <button (click)="editHero(heroSelected.id)" >EDIT</button>
-    <button (click)="deleteSuperHero(heroSelected.id)">DELETE</button>   
+<mat-spinner
+      class="loading"
+      *ngIf="this.loader.isloading | async"
+      mode="indeterminate"
+    ></mat-spinner>
+
+<div class="hero-details" *ngIf="superHeroDetail$ | async as heroSelected">
+
+<mat-card class="example-card">
+    <mat-card-header>
+      <div mat-card-avatar ></div>
+      <mat-card-title>{{heroSelected.name}}</mat-card-title>
+      <mat-card-subtitle>{{heroSelected.slug}}</mat-card-subtitle>
+    </mat-card-header>
+    <div>
+    <img mat-card-image [src]="heroSelected.images.lg" alt={{heroSelected.name}}>
+    </div>    
+    <mat-card-content>
+      <p>
+        {{heroSelected.work.occupation}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>      
+      <button mat-button (click)="editHero(heroSelected.id)">EDIT</button>
+      <button mat-button (click)="deleteSuperHero(heroSelected.id)">DELETE</button>
+    </mat-card-actions>
+  </mat-card>
+
 </div>

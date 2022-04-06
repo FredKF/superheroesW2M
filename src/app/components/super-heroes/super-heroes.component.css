@@ -10,16 +10,7 @@
 
 .flex-container{
     display: flex;
-    justify-content: space-around; 
-}
-
-.heroes{
-    width: 40vw;
-}
-
-.hero-details{
-    width: 40vw;
-    background-color: aquamarine;
+    justify-content: space-between; 
 }
 
 .loading{
@@ -31,4 +22,21 @@
     width: 31px;
 }
 
+.inline{
+    display: flex;
+    justify-content: space-around;
+}
+
+.pointer{
+    cursor: pointer;
+
+}
+.pointer:hover{
+    opacity: 0.5;
+    background-color: aqua;
+}
+
+.pagination{
+    margin: auto;
+}
 

@@ -1,16 +1,33 @@
 <div class="container">
-
-<div class="container">
-    <mat-spinner class="loading" *ngIf="this.loader.isloading | async" mode="indeterminate"></mat-spinner>
+  <div class="container">
+    <mat-spinner
+      class="loading"
+      *ngIf="this.loader.isloading | async"
+      mode="indeterminate"
+    ></mat-spinner>
     <app-search (changed)="filter($event)"></app-search>
-<div class="flex-container">    
-    <div class="heroes" *ngIf="superHeroes$ | async as superHeroes">
-        <div class="hero" *ngFor="let superHero of superHeroes | paginate:{itemsPerPage: 10, currentPage: page} ">
-            <p (click)="heroDetails(superHero.id)">{{superHero.name}}</p> 
-        </div>         
+
+    <div class="flex-container">
+      <div *ngIf="superHeroes$ | async as superHeroes">
+
+        <mat-list role="list" *ngFor="let superHero of superHeroes | paginate: { itemsPerPage: 20, currentPage: page }" >
+            <div class="inline pointer" (click)="heroDetails(superHero.id)">
+                <mat-list-item role="listitem">{{superHero.name}}</mat-list-item>
+                <img class="img-list" src={{superHero.images.xs}} alt="lost">
+            </div>
+        </mat-list>
+
+              
+      </div>
+      <app-super-hero-details></app-super-hero-details>
+      
+      
+    </div>
+    <div class="pagination">
         <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
-    <app-super-hero-details class="hero-details">HERE</app-super-hero-details>    
+    <button type="button" class="btn btn-secondary" (click)="newHero()">
+      New Hero
+    </button>
+  </div>
 </div>
-<button type="button" class="btn btn-secondary" (click)="newHero()">New Hero</button>
-    
