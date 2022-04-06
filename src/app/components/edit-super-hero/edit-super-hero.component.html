@@ -1,19 +1,22 @@
+<div class="container">
 <form [formGroup]="heroForm">
-    <label for="heroId">Id</label>
-    <input type="text" id="heroId" formControlName="id">
-    <div *ngIf="this.slug.invalid && (this.slug.dirty || this.slug.touched)"
-      class="alert alert-danger">*****required******
-    </div>
+
+  <div class="form-group">
     <label for="name">Name</label>
-    <input type="text" id="name" formControlName="name" >
-    <div *ngIf="this.name.invalid && (this.name.dirty || this.name.touched)"
+    <input type="text" class="form-control" formControlName="name" id="name">    
+    <div *ngIf="this.slug.invalid && (this.name.dirty || this.name.touched)"
       class="alert alert-danger">*****required******
-    </div>
+    </div> 
+  </div>
+
+  <div class="form-group">
     <label for="slug">Slug</label>
-    <input type="text" id="slug" formControlName="slug">
+    <input type="text" class="form-control" formControlName="slug" id="slug">
     <div *ngIf="this.slug.invalid && (this.slug.dirty || this.slug.touched)"
       class="alert alert-danger">*****required******
     </div>  
-  </form>
-  <button (click)="addNewHero()">ADD</button>
-  <button (click)="confirmEdit()">Confirm</button>
+  </div>
+    <button class="btn btn-secondary" (click)="addNewHero()">ADD</button>
+    <button class="btn btn-secondary" (click)="confirmEdit()">Confirm</button> 
+</form>  
+</div>

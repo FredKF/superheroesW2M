@@ -10,6 +10,8 @@ import { SuperHeroesComponent } from "./super-heroes/super-heroes.component";
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -25,12 +27,14 @@ import { MatListModule } from '@angular/material/list';
     SharedModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatListModule       
+    MatListModule,
+    MatFormFieldModule    
   ],
   exports:[
     SuperHeroesComponent,
     SuperHeroDetailsComponent,
-    EditSuperHeroComponent
+    EditSuperHeroComponent,
+    MatDialogModule
   ]
   
 })
