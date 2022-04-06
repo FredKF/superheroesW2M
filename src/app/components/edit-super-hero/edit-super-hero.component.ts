@@ -14,6 +14,7 @@ export class EditSuperHeroComponent implements OnInit {
   heroForm: FormGroup;
   newHero: SuperHero;
   heroUpdate: SuperHero;
+  isAdd = true;
   
   get name(){return this.heroForm.get('name');}
   get slug(){return this.heroForm.get('slug');}
@@ -42,6 +43,7 @@ export class EditSuperHeroComponent implements OnInit {
 
     const id = +this.activeRouter.snapshot.paramMap.get('id');
     if(id){
+      this.isAdd = false;
       this.superHeroService.getSuperHeroById(id).subscribe( res => {
         this.heroUpdate = res;      
         this.heroForm = this.formBuilder.group({
@@ -71,10 +73,11 @@ export class EditSuperHeroComponent implements OnInit {
         fullName: this.heroForm.get("fullName").value
       },
       images:{
-        sm: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fstackoverflow.com%2Fquestions%2F49917726%2Fretrieving-default-image-all-url-profile-picture-from-facebook-graph-api&psig=AOvVaw1MzQPpnZ059xMLk_mAS9w-&ust=1649328460722000&source=images&cd=vfe&ved=0CAoQjRxqFwoTCIiSv7qh__YCFQAAAAAdAAAAABAD"
+        sm: "assets/default.png",
+        lg: "assets/default.png"
       }
     }  
-    console.log(this.newHero);
+
     this.superHeroService.addNewSuperHero(this.newHero).subscribe(() =>{
         this.superHeroService.heroSelectedListSubject.next('');
         this.superHeroService.heroSelectedSubject.next(0);
@@ -84,7 +87,6 @@ export class EditSuperHeroComponent implements OnInit {
   }
 
   confirmEdit(): void{ 
-    
     
     this.heroUpdate = {
       id: +this.heroForm.get('id').value,
