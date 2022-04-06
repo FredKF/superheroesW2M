@@ -8,11 +8,6 @@
     opacity: 0.5;
 }
 
-.flex-container{
-    display: flex;
-    justify-content: space-between; 
-}
-
 .loading{
     position: fixed;
     z-index: 99;
@@ -24,7 +19,7 @@
 
 .inline{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .pointer{
