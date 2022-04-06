@@ -27,8 +27,7 @@
 
 }
 .pointer:hover{
-    opacity: 0.5;
-    background-color: aqua;
+    opacity: 0.5;    
 }
 
 .pagination{

@@ -15,7 +15,7 @@
     <div class="inline">
       <div class="container">
       <div class="row" *ngIf="superHeroes$ | async as superHeroes">        
-        <div class="col-sm pointer" *ngFor="let superHero of superHeroes | paginate: { itemsPerPage: 20, currentPage: page }" >
+        <div class="col-sm pointer" *ngFor="let superHero of superHeroes | paginate: { itemsPerPage: 18, currentPage: page }" >
           <div (click)="heroDetails(superHero.id)">
             <div>
               <img class="img-list" src={{superHero.images.sm}} alt="lost">  
