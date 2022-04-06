@@ -34,21 +34,21 @@ export class SuperHeroesService {
         }))
     }
 
-    addNewSuperHero(hero: SuperHero){
-      return this.http.post(`${environment.apiUrl}/superHeroes`, hero)
+    addNewSuperHero(hero: SuperHero): Observable<SuperHero>{
+      return this.http.post<SuperHero>(`${environment.apiUrl}/superHeroes`, hero)
       .pipe(
         catchError(error =>{
           console.log(error);
-          throw new Error('Could not retrieve data');
+          throw new Error('Could not add data');
         }))
     }
 
-    updateSuperHero(hero: SuperHero){
-      return this.http.patch(`${environment.apiUrl}/superHeroes/${hero.id}`, hero)
+    updateSuperHero(hero: SuperHero): Observable<SuperHero>{
+      return this.http.patch<SuperHero>(`${environment.apiUrl}/superHeroes/${hero.id}`, hero)
       .pipe(
         catchError(error =>{
           console.log(error);
-          throw new Error('Could not retrieve data');
+          throw new Error('Could not update data');
         }))
     } 
 
@@ -63,6 +63,12 @@ export class SuperHeroesService {
     }
 
     deleteSuperHero(heroId: number): Observable<SuperHero>{
-      return this.http.delete<SuperHero>(`${environment.apiUrl}/superHeroes/${heroId}`);
+      return this.http.delete<SuperHero>(`${environment.apiUrl}/superHeroes/${heroId}`)
+      .pipe(
+        catchError(error => {
+          console.log(error);
+          throw new Error('Could not delete')
+        })
+      );
     }
 }

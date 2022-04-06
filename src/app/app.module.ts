@@ -9,10 +9,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InterceptorService } from './loader/interceptor.service';
 import { ComponentsModule } from './components/components.module';
 import { SharedModule } from './shared/shared.module';
+import { CapitalizeDirective } from './capitalize.directive';
 
 @NgModule({
   declarations: [
-    AppComponent    
+    AppComponent
+            
   ],
   imports: [
     BrowserModule,
@@ -23,6 +25,7 @@ import { SharedModule } from './shared/shared.module';
     SharedModule,
     HttpClientModule
   ],
+  exports:[],
   providers: [    
     {provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true}
   ],

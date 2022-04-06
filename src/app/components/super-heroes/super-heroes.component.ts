@@ -29,7 +29,7 @@ export class SuperHeroesComponent implements OnInit {
     });
   }
 
-  filter(keyWord: string) {
+  filter(keyWord: string): void {
     this.page = 1;
     this.superHeroes$ = this.superHeroesService.searchSuperHero(keyWord).pipe(
       catchError(err => {
@@ -41,7 +41,7 @@ export class SuperHeroesComponent implements OnInit {
     this.hasErrors = false;
   }
 
-  newHero() {
+  newHero(): void {
     this.router.navigate(['super-heroes/edit']);
   }
 

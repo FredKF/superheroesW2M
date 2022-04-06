@@ -12,12 +12,14 @@ import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDialogModule } from '@angular/material/dialog';
+import { CapitalizeDirective } from "../capitalize.directive";
 
 @NgModule({
   declarations: [
     SuperHeroesComponent,
     SuperHeroDetailsComponent,
-    EditSuperHeroComponent
+    EditSuperHeroComponent,
+    CapitalizeDirective
   ],
   imports: [
     MatProgressSpinnerModule,
@@ -28,7 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     ReactiveFormsModule,
     MatCardModule,
     MatListModule,
-    MatFormFieldModule    
+    MatFormFieldModule
+    
   ],
   exports:[
     SuperHeroesComponent,
