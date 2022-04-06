@@ -51,8 +51,8 @@
 
 
   <div class="buttons">
-    <button class="btn btn-secondary" (click)="addNewHero()">ADD</button>
-    <button class="btn btn-secondary" (click)="confirmEdit()">Confirm</button> 
+    <button class="btn btn-secondary" *ngIf="isAdd"  (click)="addNewHero()">Submit</button>
+    <button class="btn btn-secondary" *ngIf="!isAdd" (click)="confirmEdit()">Confirm</button> 
   </div>
 </form>  
 </div>
