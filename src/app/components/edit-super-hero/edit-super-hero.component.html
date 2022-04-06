@@ -5,7 +5,7 @@
     <label for="name">Name</label>
     <input type="text" class="form-control" formControlName="name" id="name">    
     <div *ngIf="this.name.invalid && (this.name.dirty || this.name.touched)"
-      class="alert alert-danger">*****required******
+      class="alert alert-danger">this field is required
     </div> 
   </div>
 

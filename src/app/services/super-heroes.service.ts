@@ -44,7 +44,7 @@ export class SuperHeroesService {
     }
 
     updateSuperHero(hero: SuperHero){
-      return this.http.put(`${environment.apiUrl}/superHeroes/${hero.id}`, hero)
+      return this.http.patch(`${environment.apiUrl}/superHeroes/${hero.id}`, hero)
       .pipe(
         catchError(error =>{
           console.log(error);

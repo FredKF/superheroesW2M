@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SuperHero } from 'src/app/models/super-hero/super-heroes.model';
 import { SuperHeroesService } from 'src/app/services/super-heroes.service';
+import { SuperHeroesComponent } from '../super-heroes/super-heroes.component';
 
 @Component({
   selector: 'app-edit-super-hero',
@@ -40,18 +41,20 @@ export class EditSuperHeroComponent implements OnInit {
   ngOnInit(): void {
 
     const id = +this.activeRouter.snapshot.paramMap.get('id');
-    this.superHeroService.getSuperHeroById(id).subscribe( res => {
-      this.heroUpdate = res;      
-      this.heroForm = this.formBuilder.group({
-        id:[this.heroUpdate.id,Validators.required],
-        name:[this.heroUpdate.name,[Validators.required, Validators.minLength(2)]],
-        slug:[this.heroUpdate.slug, Validators.required],
-        firstAppearance:['', Validators.required],
-        placeOfBirth:['', Validators.required],
-        fullName:['', Validators.required],
-        occupation:['', Validators.required]        
-      });
-    });    
+    if(id){
+      this.superHeroService.getSuperHeroById(id).subscribe( res => {
+        this.heroUpdate = res;      
+        this.heroForm = this.formBuilder.group({
+          id:[this.heroUpdate.id,Validators.required],
+          name:[this.heroUpdate.name,[Validators.required, Validators.minLength(2)]],
+          slug:[this.heroUpdate.slug, Validators.required],
+          firstAppearance:[this.heroUpdate.biography.firstAppearance, Validators.required],
+          placeOfBirth:[this.heroUpdate.biography.placeOfBirth, Validators.required],
+          fullName:[this.heroUpdate.biography.fullName, Validators.required],
+          occupation:[this.heroUpdate.work.occupation, Validators.required]        
+        });
+      });    
+    }
   }
 
   addNewHero(): void{    
@@ -72,17 +75,35 @@ export class EditSuperHeroComponent implements OnInit {
       }
     }  
     console.log(this.newHero);
-    this.superHeroService.addNewSuperHero(this.newHero).subscribe(()=>console.log(this.newHero));
+    this.superHeroService.addNewSuperHero(this.newHero).subscribe(() =>{
+        this.superHeroService.heroSelectedListSubject.next('');
+        this.superHeroService.heroSelectedSubject.next(0);
+       }
+    );
     this.router.navigate(['/']);
   }
 
-  confirmEdit(): void{     
+  confirmEdit(): void{ 
+    
+    
     this.heroUpdate = {
       id: +this.heroForm.get('id').value,
       name: this.heroForm.get('name').value,
       slug: this.heroForm.get('slug').value,
+     work:{
+        occupation:  this.heroForm.get("occupation").value
+      },
+      biography: {
+        firstAppearance: this.heroForm.get("firstAppearance").value,
+        placeOfBirth: this.heroForm.get("placeOfBirth").value,
+        fullName: this.heroForm.get("fullName").value
+      }      
     }
-    this.superHeroService.updateSuperHero(this.heroUpdate).subscribe(()=>console.log(this.heroUpdate));
+    this.superHeroService.updateSuperHero(this.heroUpdate).subscribe(()=>{
+        this.superHeroService.heroSelectedSubject.next(this.heroUpdate.id);  
+        this.superHeroService.heroSelectedListSubject.next('');        
+    }
+    );
     this.router.navigate(['/']);
   }
 
