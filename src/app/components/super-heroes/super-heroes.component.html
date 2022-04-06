@@ -17,13 +17,14 @@
       <div class="row" *ngIf="superHeroes$ | async as superHeroes">        
         <div class="col-sm pointer" *ngFor="let superHero of superHeroes | paginate: { itemsPerPage: 20, currentPage: page }" >
           <div (click)="heroDetails(superHero.id)">
-            <img class="img-list" src={{superHero.images.sm}} alt="lost">  
-            <mat-list-item role="listitem">{{superHero.name}}</mat-list-item>              
+            <div>
+              <img class="img-list" src={{superHero.images.sm}} alt="lost">  
+            </div>
+            <label>{{superHero.name}}</label>        
           </div>
         </div>
       </div>
-    </div>
-      
+    </div>      
       <app-super-hero-details></app-super-hero-details>
     </div>      
       

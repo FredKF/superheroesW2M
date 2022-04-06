@@ -1,16 +1,19 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { catchError, combineLatest, EMPTY, map } from 'rxjs';
 import { LoaderService } from 'src/app/loader/loader.service';
 import { SuperHeroesService } from 'src/app/services/super-heroes.service';
+import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-super-hero-details',
   templateUrl: './super-hero-details.component.html',
   styleUrls: ['./super-hero-details.component.css']
 })
-export class SuperHeroDetailsComponent {
-  
+export class SuperHeroDetailsComponent {  
+  animal: string;
+  name: string;
   showId: number = 0;
   erroMessage = "";
 
@@ -33,7 +36,7 @@ export class SuperHeroDetailsComponent {
     this.router.navigate(['super-heroes/edit', heroId]);
   }
 
-  deleteSuperHero(heroId: number){
+  deleteSuperHero(heroId: number){ 
     this.superHeoresService.deleteSuperHero(heroId).subscribe(() => {
       this.superHeoresService.heroSelectedListSubject.next(''); 
       this.superHeoresService.heroSelectedSubject.next(0);  
@@ -42,7 +45,22 @@ export class SuperHeroDetailsComponent {
   
   constructor(private superHeoresService: SuperHeroesService,
               private router: Router,
-              public loader: LoaderService) {
+              public loader: LoaderService,
+              public dialog: MatDialog) {
   }
-  
+
+  openDeleteDialog(heroId: number): void {
+    const dialogRef = this.dialog.open(DeleteDialogComponent, {
+      width: '250px',
+      disableClose: false
+    });
+
+    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?"
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result){
+        this.deleteSuperHero(heroId);
+      }      
+    });
+  }  
 }

@@ -30,7 +30,7 @@ export class SuperHeroesComponent implements OnInit {
   }
 
   filter(keyWord: string) {
-
+    this.page = 1;
     this.superHeroes$ = this.superHeroesService.searchSuperHero(keyWord).pipe(
       catchError(err => {
         this.errorMessage = err;

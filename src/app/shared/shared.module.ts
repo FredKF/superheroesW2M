@@ -6,12 +6,14 @@ import { NgxPaginationModule } from "ngx-pagination";
 import { NotFoundComponent } from "./not-found/not-found.component";
 import { SearchComponent } from "./search/search.component";
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 
 
 @NgModule({
   declarations: [
     NotFoundComponent,
-    SearchComponent
+    SearchComponent,
+    DeleteDialogComponent
   ],
   imports: [
     MatProgressSpinnerModule,
