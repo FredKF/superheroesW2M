@@ -11,10 +11,22 @@ import { environment } from '../../environments/environment';
 export class SuperHeroesService {
 
     heroSelectedSubject = new BehaviorSubject<number>(0);
+    heroSelectedAction$ = this.heroSelectedSubject.asObservable();
+
+    heroSelectedListSubject = new BehaviorSubject<string>('');
+    heroSelectedListAction$ = this.heroSelectedListSubject.asObservable();
     
     constructor(private http: HttpClient){}
 
     superHeroes$ = this.http.get<SuperHero[]>(`${environment.apiUrl}/superHeroes`)
+    .pipe(
+        catchError(error =>{
+          console.log(error);
+          throw new Error('Could not retrieve data');
+        })
+    )
+
+    superHeroesId$ = this.http.get<SuperHero[]>(`${environment.apiUrl}/superHeroes`)
     .pipe(
         catchError(error =>{
           console.log(error);

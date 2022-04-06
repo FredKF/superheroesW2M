@@ -7,22 +7,26 @@
     ></mat-spinner>
     <app-search (changed)="filter($event)"></app-search>
 
-    <div class="flex-container">
-      <div *ngIf="superHeroes$ | async as superHeroes">
-
-        <mat-list role="list" *ngFor="let superHero of superHeroes | paginate: { itemsPerPage: 20, currentPage: page }" >
-            <div class="inline pointer" (click)="heroDetails(superHero.id)">
-                <mat-list-item role="listitem">{{superHero.name}}</mat-list-item>
-                <img class="img-list" src={{superHero.images.xs}} alt="lost">
-            </div>
-        </mat-list>
-
-              
+    
+    
+    <div class="inline">
+      <div class="container">
+      <div class="row" *ngIf="superHeroes$ | async as superHeroes">        
+        <div class="col-sm pointer" *ngFor="let superHero of superHeroes | paginate: { itemsPerPage: 20, currentPage: page }" >
+          <div (click)="heroDetails(superHero.id)">
+            <img class="img-list" src={{superHero.images.sm}} alt="lost">  
+            <mat-list-item role="listitem">{{superHero.name}}</mat-list-item>              
+          </div>
+        </div>
       </div>
-      <app-super-hero-details></app-super-hero-details>
-      
-      
     </div>
+      
+      <app-super-hero-details></app-super-hero-details>
+    </div>
+      
+      
+      
+      
     <div class="pagination">
         <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>

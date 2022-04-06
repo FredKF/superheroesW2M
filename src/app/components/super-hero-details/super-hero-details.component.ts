@@ -14,15 +14,12 @@ export class SuperHeroDetailsComponent implements OnInit {
   showId: number = 0;
   erroMessage = "";
 
-  private heroSelectedSubject = this.superHeoresService.heroSelectedSubject;
-  heroSelectedAction$ = this.heroSelectedSubject.asObservable();
-
   superHeroDetail$ = combineLatest([
     this.superHeoresService.superHeroes$,
-    this.heroSelectedAction$
+    this.superHeoresService.heroSelectedAction$
   ])
   .pipe(
-    map( ([superHeroes, selectedHeroId ])=>
+    map(([superHeroes, selectedHeroId ])=>
       superHeroes.find(superHero => 
        superHero.id === selectedHeroId)
       ),
@@ -37,8 +34,9 @@ export class SuperHeroDetailsComponent implements OnInit {
   }
 
   deleteSuperHero(heroId: number){
-    this.superHeoresService.deleteSuperHero(heroId).subscribe(res => {
-      this.superHeoresService.heroSelectedSubject.next(heroId);
+    this.superHeoresService.deleteSuperHero(heroId).subscribe(() => {
+      this.superHeoresService.heroSelectedListSubject.next(''); 
+      this.superHeoresService.heroSelectedSubject.next(0);  
     });
   }
   
@@ -47,9 +45,6 @@ export class SuperHeroDetailsComponent implements OnInit {
               public loader: LoaderService) {
   }
 
-  ngOnInit(): void {
-    this.superHeoresService.heroSelectedSubject.subscribe(id => {
-      this.showId = id;
-    });
+  ngOnInit(): void {    
   }
 }
