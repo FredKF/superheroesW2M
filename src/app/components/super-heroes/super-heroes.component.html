@@ -5,9 +5,12 @@
       *ngIf="this.loader.isloading | async"
       mode="indeterminate"
     ></mat-spinner>
+
     <app-search (changed)="filter($event)"></app-search>
 
-    
+    <div *ngIf="hasErrors" class="alert alert-danger" role="alert">
+      {{errorMessage}}
+    </div>
     
     <div class="inline">
       <div class="container">
@@ -22,16 +25,15 @@
     </div>
       
       <app-super-hero-details></app-super-hero-details>
-    </div>
-      
-      
-      
+    </div>      
       
     <div class="pagination">
         <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
+
     <button type="button" class="btn btn-secondary" (click)="newHero()">
       New Hero
     </button>
+
   </div>
 </div>

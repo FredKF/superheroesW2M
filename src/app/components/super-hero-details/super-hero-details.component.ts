@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, combineLatest, EMPTY, map } from 'rxjs';
 import { LoaderService } from 'src/app/loader/loader.service';
@@ -9,7 +9,7 @@ import { SuperHeroesService } from 'src/app/services/super-heroes.service';
   templateUrl: './super-hero-details.component.html',
   styleUrls: ['./super-hero-details.component.css']
 })
-export class SuperHeroDetailsComponent implements OnInit {
+export class SuperHeroDetailsComponent {
   
   showId: number = 0;
   erroMessage = "";
@@ -27,9 +27,9 @@ export class SuperHeroDetailsComponent implements OnInit {
         this.erroMessage = err;
         return EMPTY;
       })
-  )  
+  )
 
-  editHero(heroId: number){
+  editHero(heroId: number): void{
     this.router.navigate(['super-heroes/edit', heroId]);
   }
 
@@ -44,7 +44,5 @@ export class SuperHeroDetailsComponent implements OnInit {
               private router: Router,
               public loader: LoaderService) {
   }
-
-  ngOnInit(): void {    
-  }
+  
 }

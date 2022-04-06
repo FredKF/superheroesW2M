@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, catchError, combineLatest, EMPTY, map, Observable } from 'rxjs';
+import { catchError, EMPTY, Observable } from 'rxjs';
 import { SuperHero } from 'src/app/models/super-hero/super-heroes.model';
 import { SuperHeroesService } from 'src/app/services/super-heroes.service';
 import { LoaderService } from '../../loader/loader.service';
@@ -14,9 +14,8 @@ import { LoaderService } from '../../loader/loader.service';
 export class SuperHeroesComponent implements OnInit {
   page: any;
   errorMessage = '';
-  showError: boolean;
-  superHeroes$: Observable<SuperHero[]>;
-  showDetail = false;
+  hasErrors = false;
+  superHeroes$: Observable<SuperHero[]>;  
 
   constructor(
     public loader: LoaderService,
@@ -25,21 +24,21 @@ export class SuperHeroesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.superHeroesService.heroSelectedListSubject.subscribe(word => {
-      this.filter(word);
+    this.superHeroesService.heroSelectedListSubject.subscribe(keyWord => {
+      this.filter(keyWord);
     });
   }
 
   filter(keyWord: string) {
-    this.superHeroes$ = this.superHeroesService.superHeroes$.pipe(
-      map((superHeroes) =>
-        superHeroes.filter((superHero) =>
-          superHero.name
-            .toLocaleLowerCase()
-            .includes(keyWord.toLocaleLowerCase())
-        )
-      )
+
+    this.superHeroes$ = this.superHeroesService.searchSuperHero(keyWord).pipe(
+      catchError(err => {
+        this.errorMessage = err;
+        this.hasErrors = true;
+        return EMPTY;
+      })      
     );
+    this.hasErrors = false;
   }
 
   newHero() {

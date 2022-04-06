@@ -1,9 +1,8 @@
-import { HttpClient, HttpErrorResponse } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, catchError, Observable, throwError } from "rxjs";
+import { BehaviorSubject, catchError, Observable } from "rxjs";
 import { SuperHero } from "../models/super-hero/super-heroes.model";
 import { environment } from '../../environments/environment';
-
 
 @Injectable({
     providedIn: 'root'
@@ -13,7 +12,7 @@ export class SuperHeroesService {
     heroSelectedSubject = new BehaviorSubject<number>(0);
     heroSelectedAction$ = this.heroSelectedSubject.asObservable();
 
-    heroSelectedListSubject = new BehaviorSubject<string>('');
+    heroSelectedListSubject = new BehaviorSubject<string>("");
     heroSelectedListAction$ = this.heroSelectedListSubject.asObservable();
     
     constructor(private http: HttpClient){}
@@ -26,13 +25,14 @@ export class SuperHeroesService {
         })
     )
 
-    superHeroesId$ = this.http.get<SuperHero[]>(`${environment.apiUrl}/superHeroes`)
-    .pipe(
+    searchSuperHero(keyWord: string) : Observable<SuperHero[]>{
+      return this.http.get<SuperHero[]>(`${environment.apiUrl}/superHeroes?name_like=${keyWord}`)
+      .pipe(
         catchError(error =>{
           console.log(error);
           throw new Error('Could not retrieve data');
-        })
-    )
+        }))
+    }
 
     addNewSuperHero(hero: SuperHero){
       return this.http.post(`${environment.apiUrl}/superHeroes`, hero)
@@ -53,10 +53,16 @@ export class SuperHeroesService {
     } 
 
     getSuperHeroById(heroId: number): Observable<SuperHero>{
-        return this.http.get<SuperHero>(`${environment.apiUrl}/superHeroes/${heroId}`);
+        return this.http.get<SuperHero>(`${environment.apiUrl}/superHeroes/${heroId}`)
+        .pipe(
+          catchError(error =>{
+            console.log(error);
+            throw new Error('Could not retrieve data');
+          })
+      );
     }
 
-    deleteSuperHero(heroId: number){
+    deleteSuperHero(heroId: number): Observable<SuperHero>{
       return this.http.delete<SuperHero>(`${environment.apiUrl}/superHeroes/${heroId}`);
     }
 }
