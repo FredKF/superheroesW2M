@@ -4,7 +4,7 @@
   <div class="form-group">
     <label for="name">Name</label>
     <input type="text" class="form-control" formControlName="name" id="name">    
-    <div *ngIf="this.slug.invalid && (this.name.dirty || this.name.touched)"
+    <div *ngIf="this.name.invalid && (this.name.dirty || this.name.touched)"
       class="alert alert-danger">*****required******
     </div> 
   </div>
@@ -16,6 +16,40 @@
       class="alert alert-danger">*****required******
     </div>  
   </div>
+
+  <div class="form-group">
+    <label for="slug">Full Name</label>
+    <input type="text" class="form-control" formControlName="fullName" id="fullName">
+    <div *ngIf="this.fullName.invalid && (this.fullName.dirty || this.fullName.touched)"
+      class="alert alert-danger">*****required******
+    </div>  
+  </div>
+
+  <div class="form-group">
+    <label for="slug">Place Of Birth</label>
+    <input type="text" class="form-control" formControlName="placeOfBirth" id="placeOfBirth">
+    <div *ngIf="this.placeOfBirth.invalid && (this.placeOfBirth.dirty || this.placeOfBirth.touched)"
+      class="alert alert-danger">*****required******
+    </div>  
+  </div>
+
+  <div class="form-group">
+    <label for="name">Occupation</label>
+    <input type="text" class="form-control" formControlName="occupation" id="occupation">    
+    <div *ngIf="this.occupation.invalid && (this.occupation.dirty || this.occupation.touched)"
+      class="alert alert-danger">*****required******
+    </div> 
+  </div>
+
+  <div class="form-group">
+    <label for="slug">First Appearance</label>
+    <input type="text" class="form-control" formControlName="firstAppearance" id="firstAppearance">
+    <div *ngIf="this.firstAppearance.invalid && (this.firstAppearance.dirty || this.firstAppearance.touched)"
+      class="alert alert-danger">*****required******
+    </div>  
+  </div>
+
+
   <div class="buttons">
     <button class="btn btn-secondary" (click)="addNewHero()">ADD</button>
     <button class="btn btn-secondary" (click)="confirmEdit()">Confirm</button> 

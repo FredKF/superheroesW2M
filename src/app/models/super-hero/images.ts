@@ -1,6 +1,6 @@
 export interface Images {
-    xs: string;
+    xs?: string;
     sm: string;
-    md: string;
-    lg: string;
+    md?: string;
+    lg?: string;
   }

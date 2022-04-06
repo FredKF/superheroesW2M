@@ -19,6 +19,15 @@
       <p>
         {{heroSelected.work.occupation}}
       </p>
+      <p>
+        {{heroSelected.biography.fullName}}      
+      </p>
+      <p>
+        {{heroSelected.biography.placeOfBirth}}
+      </p>
+      <p>
+        {{heroSelected.biography.firstAppearance}}
+      </p>
     </mat-card-content>
     <mat-card-actions>      
       <button mat-button (click)="editHero(heroSelected.id)">EDIT</button>

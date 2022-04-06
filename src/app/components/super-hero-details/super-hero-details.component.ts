@@ -55,7 +55,7 @@ export class SuperHeroDetailsComponent {
       disableClose: false
     });
 
-    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete?"
+    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete this superhero?"
 
     dialogRef.afterClosed().subscribe(result => {
       if(result){
