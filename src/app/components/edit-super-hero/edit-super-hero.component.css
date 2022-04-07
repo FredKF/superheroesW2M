@@ -1,0 +1,23 @@
+.buttons{
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+    margin-top: 20px;
+}
+
+.main{
+  display: flex;  
+  justify-content: space-around;
+}
+
+.hero-image{
+    border: solid grey;
+    padding: 5px;    
+}
+
+.form-edit{
+    width: 50%;
+
+}
+
+
