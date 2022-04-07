@@ -1,0 +1,25 @@
+version: '2'
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: web
+    ports:
+      - "8080:80"
+
+  json-server:
+        container_name: json-server-container
+        image: json-server-image
+        build: ./api
+        ports:
+            - "3000:3000"
+        volumes:
+            - ./api/superHeroesDB.json:/api/superHeroesDB.json
+        command: json-server --watch /api/superHeroesDB.json --host 0.0.0.0
+
+  
+
+
+ 
