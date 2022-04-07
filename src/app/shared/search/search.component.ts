@@ -1,17 +1,18 @@
-import { Component, Input, Output,EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-search',
-  templateUrl: './search.component.html'  
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css'],
 })
-export class SearchComponent{
-
+export class SearchComponent {
   private _filter: string;
-  @Input() get filter(){
+
+  @Input() get filter() {
     return this._filter;
   }
 
-  set filter(val: string){
+  set filter(val: string) {
     this._filter = val;
     this.changed.emit(this.filter);
   }

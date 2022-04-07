@@ -9,58 +9,57 @@ import { DeleteDialogComponent } from 'src/app/shared/delete-dialog/delete-dialo
 @Component({
   selector: 'app-super-hero-details',
   templateUrl: './super-hero-details.component.html',
-  styleUrls: ['./super-hero-details.component.css']
 })
-export class SuperHeroDetailsComponent {  
+export class SuperHeroDetailsComponent {
   animal: string;
   name: string;
   showId: number = 0;
-  erroMessage = "";
+  erroMessage = '';
 
   superHeroDetail$ = combineLatest([
     this.superHeoresService.superHeroes$,
-    this.superHeoresService.heroSelectedAction$
-  ])
-  .pipe(
-    map(([superHeroes, selectedHeroId ])=>
-      superHeroes.find(superHero => 
-       superHero.id === selectedHeroId)
-      ),
-      catchError(err => {
-        this.erroMessage = err;
-        return EMPTY;
-      })
-  )
+    this.superHeoresService.heroSelectedAction$,
+  ]).pipe(
+    map(([superHeroes, selectedHeroId]) =>
+      superHeroes.find((superHero) => superHero.id === selectedHeroId)
+    ),
+    catchError((err) => {
+      this.erroMessage = err;
+      return EMPTY;
+    })
+  );
 
-  editHero(heroId: number): void{
+  editHero(heroId: number): void {
     this.router.navigate(['super-heroes/edit', heroId]);
   }
 
-  deleteSuperHero(heroId: number){ 
+  deleteSuperHero(heroId: number) {
     this.superHeoresService.deleteSuperHero(heroId).subscribe(() => {
-      this.superHeoresService.heroSelectedListSubject.next(''); 
-      this.superHeoresService.heroSelectedSubject.next(0);  
+      this.superHeoresService.heroSelectedListSubject.next('');
+      this.superHeoresService.heroSelectedSubject.next(0);
     });
   }
-  
-  constructor(private superHeoresService: SuperHeroesService,
-              private router: Router,
-              public loader: LoaderService,
-              public dialog: MatDialog) {
-  }
+
+  constructor(
+    private superHeoresService: SuperHeroesService,
+    private router: Router,
+    public loader: LoaderService,
+    public dialog: MatDialog
+  ) {}
 
   openDeleteDialog(heroId: number): void {
     const dialogRef = this.dialog.open(DeleteDialogComponent, {
-      width: '250px',
-      disableClose: false
+      width: '300px',
+      disableClose: false,
     });
 
-    dialogRef.componentInstance.confirmMessage = "Are you sure you want to delete this superhero?"
+    dialogRef.componentInstance.confirmMessage =
+      'Are you sure you want to delete this superhero?';
 
-    dialogRef.afterClosed().subscribe(result => {
-      if(result){
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result) {
         this.deleteSuperHero(heroId);
-      }      
+      }
     });
-  }  
+  }
 }

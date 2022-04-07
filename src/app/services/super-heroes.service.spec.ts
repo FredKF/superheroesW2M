@@ -89,5 +89,4 @@ describe('SuperHeroesService', () => {
         req.flush(addObj);
         httpTestingController.verify();
   });
-
 });

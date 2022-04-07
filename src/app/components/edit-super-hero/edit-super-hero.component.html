@@ -65,12 +65,8 @@
         </div>
       </form>
       <div class="buttons">
-        <button
-          *ngIf="isAdd === true"
-          class="btn btn-secondary"
-          [disabled]="!this.heroForm.valid"
-          (click)="addNewHero()"
-        >
+        <button *ngIf="isAdd === true" class="btn btn-secondary" [disabled]="!this.heroForm.valid"
+          (click)="addNewHero()">
           Submit
         </button>
         <button *ngIf="!isAdd" class="btn btn-secondary" (click)="confirmEdit()">

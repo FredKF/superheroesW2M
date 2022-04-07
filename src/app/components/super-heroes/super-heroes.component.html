@@ -1,35 +1,32 @@
 <div class="container">
   <div class="container">
-    <mat-spinner
-      class="loading"
-      *ngIf="this.loader.isloading | async"
-      mode="indeterminate"
-    ></mat-spinner>
+    <mat-spinner class="loading" *ngIf="this.loader.isloading | async" mode="indeterminate"></mat-spinner>
 
     <app-search (changed)="filter($event)"></app-search>
 
     <div *ngIf="hasErrors" class="alert alert-danger" role="alert">
       {{errorMessage}}
     </div>
-    
+
     <div class="inline">
       <div class="container">
-      <div class="row" *ngIf="superHeroes$ | async as superHeroes">        
-        <div class="col-sm pointer" *ngFor="let superHero of superHeroes | paginate: { itemsPerPage: 18, currentPage: page }" >
-          <div (click)="heroDetails(superHero.id)">
-            <div>
-              <img class="img-list" src={{superHero.images.sm}} alt="lost">  
+        <div class="row" *ngIf="superHeroes$ | async as superHeroes">
+          <div class="col-sm pointer"
+            *ngFor="let superHero of superHeroes | paginate: { itemsPerPage: 18, currentPage: page }">
+            <div (click)="heroDetails(superHero.id)">
+              <div>
+                <img class="img-list" src={{superHero.images.sm}} alt="lost">
+              </div>
+              <label>{{superHero.name}}</label>
             </div>
-            <label>{{superHero.name}}</label>        
           </div>
         </div>
       </div>
-    </div>      
       <app-super-hero-details></app-super-hero-details>
-    </div>      
-      
+    </div>
+
     <div class="pagination">
-        <pagination-controls (pageChange)="page = $event"></pagination-controls>
+      <pagination-controls (pageChange)="page = $event"></pagination-controls>
     </div>
 
     <button type="button" class="btn btn-secondary" (click)="newHero()">

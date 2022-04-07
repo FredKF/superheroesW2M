@@ -15,7 +15,7 @@ export class SuperHeroesComponent implements OnInit {
   page: any;
   errorMessage = '';
   hasErrors = false;
-  superHeroes$: Observable<SuperHero[]>;  
+  superHeroes$: Observable<SuperHero[]>;
 
   constructor(
     public loader: LoaderService,
@@ -24,7 +24,7 @@ export class SuperHeroesComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.superHeroesService.heroSelectedListSubject.subscribe(keyWord => {
+    this.superHeroesService.heroSelectedListSubject.subscribe((keyWord) => {
       this.filter(keyWord);
     });
   }
@@ -32,11 +32,11 @@ export class SuperHeroesComponent implements OnInit {
   filter(keyWord: string): void {
     this.page = 1;
     this.superHeroes$ = this.superHeroesService.searchSuperHero(keyWord).pipe(
-      catchError(err => {
+      catchError((err) => {
         this.errorMessage = err;
         this.hasErrors = true;
         return EMPTY;
-      })      
+      })
     );
     this.hasErrors = false;
   }
