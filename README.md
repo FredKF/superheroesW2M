@@ -8,6 +8,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The appli
 
 Run `docker-compose up -d` for excecuting the app locally in a docker container, then navigate to `http://localhost:8080`
 
+Docker repository can be found here `https://hub.docker.com/r/fedetkd86/superheroesw2m`
+
 
 ## Code scaffolding
 
