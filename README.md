@@ -6,6 +6,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Run `npm run serve-json` to start the mocked backend service
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
+Run `docker-compose up -d` for excecuting the app locally in a docker container, then navigate to `http://localhost:8080`
+
 
 ## Code scaffolding
 
