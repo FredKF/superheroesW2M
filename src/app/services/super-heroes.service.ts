@@ -70,5 +70,5 @@ export class SuperHeroesService {
           throw new Error('Could not delete')
         })
       );
-    }
+    }   
 }

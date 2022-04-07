@@ -7,7 +7,8 @@ import { SuperHeroesService } from 'src/app/services/super-heroes.service';
 @Component({
   selector: 'app-edit-super-hero',
   templateUrl: './edit-super-hero.component.html',
-  styleUrls: ['./edit-super-hero.component.css'],
+  styleUrls: ['./edit-super-hero.component.css']
+    
 })
 export class EditSuperHeroComponent implements OnInit {
   heroForm: FormGroup;
@@ -101,8 +102,9 @@ export class EditSuperHeroComponent implements OnInit {
         fullName: this.heroForm.get('fullName').value,
       },
       images: {
+        //TODO image manager
         sm: 'assets/default.png',
-        lg: 'assets/default.png',
+        lg: 'assets/default.png'
       },
     };
 
@@ -110,6 +112,7 @@ export class EditSuperHeroComponent implements OnInit {
       this.superHeroService.heroSelectedListSubject.next('');
       this.superHeroService.heroSelectedSubject.next(0);
     });
+
     this.router.navigate(['/']);
   }
 
@@ -125,7 +128,7 @@ export class EditSuperHeroComponent implements OnInit {
         firstAppearance: this.heroForm.get('firstAppearance').value,
         placeOfBirth: this.heroForm.get('placeOfBirth').value,
         fullName: this.heroForm.get('fullName').value,
-      },
+      }
     };
     this.superHeroService.updateSuperHero(this.heroUpdate).subscribe(() => {
       this.superHeroService.heroSelectedSubject.next(this.heroUpdate.id);
@@ -144,4 +147,5 @@ export class EditSuperHeroComponent implements OnInit {
     this.heroForm.reset();
     this.router.navigate(['/']);
   }
+  
 }
