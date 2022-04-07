@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Location } from '@angular/common'
 
 @Component({
-  templateUrl: './not-found.component.html'
+  templateUrl: './not-found.component.html',
+  styleUrls:['./not-found.component.css']
 })
-export class NotFoundComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class NotFoundComponent {
+  constructor(private location: Location){}
+  goBack(){
+    this.location.back();
   }
-
+  
 }
