@@ -10,7 +10,6 @@ import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatIconModule } from '@angular/material/icon';
 
-
 @NgModule({
   declarations: [
     NotFoundComponent,
@@ -30,7 +29,6 @@ import { MatIconModule } from '@angular/material/icon';
     NotFoundComponent,
     SearchComponent,
     ToolbarComponent   
-  ]
-  
+  ]  
 })
 export class SharedModule { }
