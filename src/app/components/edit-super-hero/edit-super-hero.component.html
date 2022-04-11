@@ -1,6 +1,12 @@
 <div class="container">
   <div class="main">
-    <img class="hero-image" [src]="image" alt="no image" />
+    
+    <div class="image-container">
+      <div *ngIf="filePath && filePath !== ''">
+        <img class="hero-image" [src]="filePath" alt="alt">
+      </div>
+      <input type="file" accept="image/*" (change)="imagePreview($event)" />
+    </div>   
 
     <div class="form-edit">
       <form [formGroup]="heroForm">

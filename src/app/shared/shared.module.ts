@@ -9,6 +9,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { DeleteDialogComponent } from './delete-dialog/delete-dialog.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { SharedRoutingModule } from "./shared-routing.module";
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { MatIconModule } from '@angular/material/icon';
     CommonModule,
     FormsModule,
     MatToolbarModule,
-    MatIconModule    
+    MatIconModule,
+    MatInputModule,
+    SharedRoutingModule
   ],
   exports:[
     NotFoundComponent,

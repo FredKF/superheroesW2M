@@ -3,6 +3,7 @@ import { Injectable } from "@angular/core";
 import { BehaviorSubject, catchError, Observable } from "rxjs";
 import { SuperHero } from "../models/super-hero/super-heroes.model";
 import { environment } from '../../environments/environment';
+import { ImageUpload } from "../models/image/Image-upload.model";
 
 @Injectable({
     providedIn: 'root'
@@ -67,8 +68,18 @@ export class SuperHeroesService {
       .pipe(
         catchError(error => {
           console.log(error);
-          throw new Error('Could not delete')
+          throw new Error('Could not delete');
         })
       );
-    }   
+    }
+    
+    loadNewImage(image: ImageUpload): Observable<ImageUpload>{
+      return this.http.post<ImageUpload>(`${environment.apiUrl}/uploadImages`, image)
+      .pipe(
+        catchError(error => {
+          console.log(error);
+          throw new Error('Could not post');
+        })
+      );
+    }
 }

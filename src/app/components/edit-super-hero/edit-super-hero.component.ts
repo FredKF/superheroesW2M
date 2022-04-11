@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ImageUpload } from 'src/app/models/image/Image-upload.model';
 import { SuperHero } from 'src/app/models/super-hero/super-heroes.model';
 import { SuperHeroesService } from 'src/app/services/super-heroes.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-edit-super-hero',
@@ -16,6 +18,7 @@ export class EditSuperHeroComponent implements OnInit {
   heroUpdate: SuperHero;
   isAdd = false;
   image = '';
+  filePath: string;
 
   get name() {
     return this.heroForm.get('name');
@@ -55,7 +58,7 @@ export class EditSuperHeroComponent implements OnInit {
     if (!this.isAdd) {
       this.superHeroService.getSuperHeroById(id).subscribe((res) => {
         this.heroUpdate = res;
-        this.image = res.images.lg;
+        this.filePath = res.images.lg;
         this.heroForm = this.formBuilder.group({
           id: [this.heroUpdate.id],
           name: [
@@ -99,19 +102,24 @@ export class EditSuperHeroComponent implements OnInit {
       biography: {
         firstAppearance: this.heroForm.get('firstAppearance').value,
         placeOfBirth: this.heroForm.get('placeOfBirth').value,
-        fullName: this.heroForm.get('fullName').value,
+        fullName: this.heroForm.get('fullName').value
       },
       images: {
-        //TODO image manager
-        sm: 'assets/default.png',
-        lg: 'assets/default.png'
+        sm: `${environment.apiUrl}/uploadImages/${this.image}`,
+        lg: this.image        
       },
     };
+
+    const newImage: ImageUpload = {
+      name: this.image
+    }
 
     this.superHeroService.addNewSuperHero(this.newHero).subscribe(() => {
       this.superHeroService.heroSelectedListSubject.next('');
       this.superHeroService.heroSelectedSubject.next(0);
     });
+
+    // this.superHeroService.loadNewImage(newImage).subscribe();
 
     this.router.navigate(['/']);
   }
@@ -133,7 +141,7 @@ export class EditSuperHeroComponent implements OnInit {
     this.superHeroService.updateSuperHero(this.heroUpdate).subscribe(() => {
       this.superHeroService.heroSelectedSubject.next(this.heroUpdate.id);
       this.superHeroService.heroSelectedListSubject.next('');
-    });
+    });  
     this.router.navigate(['/']);
   }
 
@@ -143,9 +151,19 @@ export class EditSuperHeroComponent implements OnInit {
     });
   }
 
-  cancelAction() {
+  cancelAction(): void {
     this.heroForm.reset();
     this.router.navigate(['/']);
   }
-  
+
+  imagePreview(event: any): void{
+    const file = (event.target as HTMLInputElement).files[0];
+    this.image = file.name;
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      this.filePath = reader.result as string;
+    }
+    reader.readAsDataURL(file);
+  }  
 }
